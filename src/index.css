@@ -1,0 +1,40 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+}
+@font-face {
+  font-family: "CurvedSquare";
+  src: local("CurvedSquare"),
+    url("./fonts/curvedsquare/CurvedSquare.ttf") format("truetype");
+  font-weight: bold;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+/* 
+.about {
+  background: url(./assets/screen.png) no-repeat 50%;
+  background-position: center;
+  background-size: cover;
+  min-height: 97vh;
+} */
+
+/* .contact {
+  background: url(./assets/screen.png) no-repeat 50%;
+  background-position: center;
+  background-size: cover;
+  min-height: 97vh;
+} */
+
+.about-content1 {
+  /* background-color: #0c0c0c !important; */
+  /* background: url(./assets/founder.PNG) no-repeat 50% !important; */
+  background-position: center !important;
+  background-size: cover !important;
+  /* padding: 0 !important; */
+}
