@@ -21,12 +21,12 @@ const Contact = () => {
             </Link>
 
             <div className="navbar">
-              <Link to="/about" className="text">
+              {/* <Link to="/about" className="text">
                 ABOUT
               </Link>
               <Link to="/artist" className="text">
                 ARTISTS
-              </Link>
+              </Link> */}
               <Link to="/contact" className="text">
                 CONTACT
               </Link>

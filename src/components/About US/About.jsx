@@ -22,12 +22,12 @@ const About = () => {
           </Link>
 
           <div className="navbar">
-            <Link to="/about" className="text">
+            {/* <Link to="/about" className="text">
               ABOUT
             </Link>
             <Link to="/artist" className="text">
               ARTISTS
-            </Link>
+            </Link> */}
             {/* <div className="text">ARTISTS</div> */}
             <Link to="/contact" className="text">
               CONTACT
