@@ -12,7 +12,45 @@ import "./contact.scss";
 function ContactForm() {
   const [state, handleSubmit] = useForm("xnqkkgzn");
   if (state.succeeded) {
-      return <p>Thanks for joining!</p>;
+      return (
+        <div className="contact-page-wrap">
+        <Canvas show="contact" />
+          <div className="contact-wrap">
+            <div className="contact">
+              <Link to="/">
+                  <div className="logo-img">
+                    <img src={logo} alt="" />
+                  </div>
+              </Link>
+              <div className="navbar">
+                    {/* <Link to="/about" className="text">
+                      ABOUT
+                    </Link>
+                    <Link to="/artist" className="text">
+                      ARTISTS
+                    </Link> */}
+                    <Link to="/contact" className="text">
+                      CONTACT
+                    </Link>
+                  </div>
+                  
+              <div className="content" style={{ width: "100%" }}>
+                <div className="data">
+                  {/*
+                    Render success message if the form is successfully submitted
+                  */}
+                   
+                  <div className="success-message">
+                    <p className="mb-0">Thanks for joining!</p>
+                  </div>
+
+                  {/* ... (rest of your form code) */}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
   }
   return (
     <div className="contact-page-wrap">
