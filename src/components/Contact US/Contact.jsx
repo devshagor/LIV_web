@@ -106,10 +106,12 @@ function ContactForm() {
                         errors={state.errors}
                       />
                     </div>
-                   
+                   <div className="btn-adjust">
                     <button type="submit" className="btn-artist" disabled={state.submitting}>
-                      Send
-                    </button>
+                        Send
+                      </button>
+                   </div>
+                   
                   </form>
                 </div>
 
