@@ -1,23 +1,28 @@
+
 import React from "react";
 import Canvas from "../Canvas/Canvas";
 
 import logo from "../../assets/logo.png";
-
 import { Link } from "react-router-dom";
+
+// import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import "./contact.scss";
 
-const Contact = () => {
+function ContactForm() {
+  const [state, handleSubmit] = useForm("xnqkkgzn");
+  if (state.succeeded) {
+      return <p>Thanks for joining!</p>;
+  }
   return (
-    <>
-      <div className="contact-page-wrap">
-        <Canvas show="contact" />
-
-        <div className="contact-wrap">
-          <div className="contact">
+    <div className="contact-page-wrap">
+       <Canvas show="contact" />
+       <div className="contact-wrap">
+        <div className="contact">
             <Link to="/">
-              <div className="logo-img">
-                <img src={logo} alt="" />
-              </div>
+                <div className="logo-img">
+                  <img src={logo} alt="" />
+                </div>
             </Link>
 
             <div className="navbar">
@@ -31,65 +36,94 @@ const Contact = () => {
                 CONTACT
               </Link>
             </div>
-
             <div className="content" style={{ width: "100%" }}>
-              <div className="data">
-                <div className="title">CONTACT US</div>
-                <form>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">
-                      Name
-                    </label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="exampleInputEmail1"
-                      aria-describedby="emailHelp"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputtext1" class="form-label">
-                      Email address
-                    </label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="exampleInputtext1"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputtext1" class="form-label">
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="exampleInputtext1"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputtext1" class="form-label">
-                      Message
-                    </label>
-                    <textarea
-                      type="text`"
-                      class="form-control"
-                      id="exampleInputtext1"
-                    />
-                  </div>
-                  <div className="btn-adjust">
-                    <button type="submit" class="btn-artist">
+                
+                <div className="data">
+                  <div className="title">CONTACT US</div>
+                  <form onSubmit={handleSubmit}>
+
+                    <div className="mb-3">
+                      <label htmlFor="name" className="form-label">
+                        Name
+                      </label>
+                      <input
+                        id="name"
+                        type="text" 
+                        name="name"
+                        className="form-control"
+                      />
+                      <ValidationError 
+                        prefix="Name" 
+                        field="name"
+                        errors={state.errors}
+                      />
+                    </div>
+
+                    <div className="mb-3">
+                      <label htmlFor="email" className="form-label">
+                        Email Address
+                      </label>
+                      <input
+                        id="email"
+                        type="email" 
+                        name="email"
+                        className="form-control"
+                      />
+                      <ValidationError 
+                        prefix="Email" 
+                        field="email"
+                        errors={state.errors}
+                      />
+                    </div>
+
+                    <div className="mb-3">
+                      <label htmlFor="subject" className="form-label">
+                        Subject
+                      </label>
+                      <input
+                        id="subject"
+                        type="text" 
+                        name="subject"
+                        className="form-control"
+                      />
+                      <ValidationError 
+                        prefix="Subject" 
+                        field="subject"
+                        errors={state.errors}
+                      />
+                    </div>
+
+                    <div className="mb-3">
+                      <label htmlFor="message" className="form-label">Message</label>
+                      <textarea
+                      className="form-control"
+                        id="message"
+                        name="message"
+                      />
+                      <ValidationError 
+                        prefix="Message" 
+                        field="message"
+                        errors={state.errors}
+                      />
+                    </div>
+                   
+                    <button type="submit" className="btn-artist" disabled={state.submitting}>
                       Send
                     </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
+                  </form>
+                </div>
 
-export default Contact;
+            </div>
+        </div>
+       </div>
+      
+    </div>
+    
+  );
+}
+function App() {
+  return (
+    <ContactForm />
+  );
+}
+export default App;
